@@ -7,16 +7,16 @@ from django.contrib import messages
 from .email import send_welcome_email
 from .models import Image, Profile, User, Comment
 from django.contrib.auth.decorators import login_required
+
 # Create your views here.
-# def index(request):
-#     return render(request, 'registration/login.html', {})
+
 
 def home(request):
     images=Image.objects.all()
     users=User.objects.all()
     # print(images)
 
-    return render(request, 'instaclone/index.html', {"images":images, "users":users})
+    return render(request, 'home.html', {"images":images, "users":users})
 
 # def homepage(request):
 #     image=Image.objects.all()
@@ -39,7 +39,7 @@ def registerUser(request):
     else:
         form=RegistrationForm()
     title="Register New User"
-    return render(request, 'registration/registration.html', {"title":title, "form":form})
+    return render(request, 'registration/signup.html', {"title":title, "form":form})
 
 def loginUser(request):
     if request.method =="POST":
@@ -84,7 +84,7 @@ def new_image(request):
 
     else:
         form=NewImageForm()
-    return render(request, 'instaclone/new_image.html', {"form":form})
+    return render(request, 'new_image.html', {"form":form})
 
 def likes(request, pk):
     imagelike=get_object_or_404(Image, id=request.POST.get('likebutton'))
@@ -117,7 +117,7 @@ def viewPhoto(request, pk):
 
     else:
         form=ImageCommentForm()
-    return render(request, 'instaclone/oneimage.html', {"image": image, "form":form, "all_comments": all_comments,"total_likes": total_likes})
+    return render(request, 'oneimage.html', {"image": image, "form":form, "all_comments": all_comments,"total_likes": total_likes})
 
 @login_required
 def profile_view(request, pk):
@@ -129,7 +129,7 @@ def profile_view(request, pk):
     total_followers=user_followers.total_followers()
     
 
-    return render(request, "instaclone/profile.html", {"user":user,"images":images, "total_followers":total_followers})
+    return render(request, "profile.html", {"user":user,"images":images, "total_followers":total_followers})
 
 @login_required
 def editpage(request, pk):
@@ -148,7 +148,7 @@ def editpage(request, pk):
     else:
         form=UpdateUserProfile()
 
-    return render(request, "instaclone/editprofile.html", {"form":form, "user":user})
+    return render(request, "editprofile.html", {"form":form, "user":user})
 
 def search_profile(request):
     if 'article' in request.GET and request.GET['article']:
@@ -156,9 +156,9 @@ def search_profile(request):
         searched_profile=Image.search_by_user(profile)
         message=f"{profile}"
 
-        return render(request, "instaclone/search.html", {"message":message, "articles":searched_profile})
+        return render(request, "search.html", {"message":message, "articles":searched_profile})
 
     else:
         message="You have not searched for any profile"
-        return render(request, "instaclone/search.html", {"message":message})
+        return render(request, "search.html", {"message":message})
 
