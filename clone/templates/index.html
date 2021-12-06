@@ -27,8 +27,8 @@
                         {% if image.profile.profile.profile_pic.url %}
                         <img src="{{image.profile.profile.profile_pic.url}}" class="profilepic" class="">
                         {% else %}
-                        <img src="../../static/Images/altprofilepic.jpg"
-                            alt="phone displaying the name instagram on a blue screen" class="profilepic">
+                        <img src="/static/images/pexels-magnus-flechsenhaar-3841412.jpg"
+                            alt="" class="profilepic">
                         {% endif %}
                         <p>Profile Name:<a href="{% url 'userprofile' image.profile.profile.id %}">{{image.profile.profile.user}}</a></p>
                     </div>
@@ -53,7 +53,7 @@
         </div>
 
         <div class="col-md-3 otherprofiles">
-            <p>OTHER USER PROFILES</p>
+            <p>Suggestions for you</p>
             {% for user in users %}
             <p>{{user.username}}</p>
             {% endfor %}
