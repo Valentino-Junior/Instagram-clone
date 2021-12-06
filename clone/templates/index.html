@@ -30,13 +30,13 @@
                         <img src="/static/images/pexels-magnus-flechsenhaar-3841412.jpg"
                             alt="" class="profilepic">
                         {% endif %}
-                        <p>Profile Name:<a href="{% url 'userprofile' image.profile.profile.id %}">{{image.profile.profile.user}}</a></p>
+                        <p>Profile Name: <a href="{% url 'userprofile' image.profile.profile.id %}">{{image.profile.profile.user}}</a></p>
                     </div>
                 </div>
                 <div class="panel-body">
                     <div class="viewimage">
                         <a href="{% url 'viewphoto' image.id %}"><img src="{{image.image.url}}"
-                                alt="{{image.image_name}}" class="img-responsive"></a>
+                                alt="{{image.image_name}}" class="img-responsive" style="max-height: 200px; width:800px ;"></a>
                     </div>
                     <br>
 

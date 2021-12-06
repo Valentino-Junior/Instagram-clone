@@ -138,7 +138,7 @@ def editpage(request, pk):
     else:
         form=UpdateUserProfile()
 
-    return render(request, "editprofile.html", {"form":form, "user":user})
+    return render(request, "editprofile.html", {"form":form, "user":user, "pk": pk})
 
 def search_profile(request):
     if 'article' in request.GET and request.GET['article']:

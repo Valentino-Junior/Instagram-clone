@@ -8,8 +8,8 @@ class Profile(models.Model):
     user=models.OneToOneField(User, null=True, on_delete=models.CASCADE)
     bio=models.CharField(max_length=450)
     profile_pic=CloudinaryField('image')
-    following=models.ManyToManyField(User, null=True, related_name="following")
-    followers=models.ManyToManyField(User, null=True, related_name="followers")
+    following=models.ManyToManyField(User, null=True, blank=True, related_name="following")
+    followers=models.ManyToManyField(User, null=True, blank=True, related_name="followers")
 
     def __str__(self):
         return str(self.user)
