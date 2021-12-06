@@ -1,0 +1,51 @@
+{% extends 'registration/base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="container-fluid" id="landing-page-container">
+    <div class="row">
+        <!-- Empty column -->
+        <div class="col-md-3"></div>
+        <!-- Login Form -->
+        <div class="col-md-6">
+            <div>
+                <div class="landing-page-format">
+                    <div class="landing-page-image">
+                        <img src="../../static/Images/loginlanding.jpg"
+                            href="man using a smartphone with finger hovering over the Instagram app">
+                    </div>
+                    <div class="landing-page-form">
+                        <h4>Instaclone</h4>
+                        <div class="form-group">
+                            <form action="" , method="post" class="loginform">
+                                {% csrf_token %}
+                                <label for="username">Enter Username:</label>
+                                <input type="text" name="username" class="form-control">
+                                <br>
+                                <label for="password">Input password:</label>
+                                <input type="password" name="password" class="form-control">
+                                {% for message in messages %}
+                                {{message}}
+                                {% endfor %}
+                                <br>
+                                <input type="submit" value="Login" class="btn btn-success btn-block">
+                            </form>
+
+                        </div>
+
+                        <br>
+                        <div class="landing-create-account">
+                            <p>Don't have an account?<a href="{% url 'registeruser'%}">Sign Up</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+        <!-- Empty column -->
+        <div class="col-md-3"></div>
+    </div>
+</div>
+{% endblock %}
