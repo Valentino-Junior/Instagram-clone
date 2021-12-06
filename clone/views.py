@@ -34,7 +34,7 @@ def registerUser(request):
         if form.is_valid():
             form.save()
 
-            return redirect('index')
+            return redirect('home')
 
     else:
         form=RegistrationForm()
@@ -62,13 +62,13 @@ def loginUser(request):
         else:
             messages.error(request, "Field is empty. Enter Username and Password")
 
-    title="Instaclone.com"
+    title="G clone"
     return render(request, 'registration/login.html', {"title":title})
 
 
 def logoutUser(request):
     logout(request)
-    return redirect('index')
+    return redirect('home')
 
 @login_required
 def new_image(request):
@@ -84,7 +84,7 @@ def new_image(request):
 
     else:
         form=NewImageForm()
-    return render(request, 'new_image.html', {"form":form})
+    return render(request, 'comment.html', {"form":form})
 
 def likes(request, pk):
     imagelike=get_object_or_404(Image, id=request.POST.get('likebutton'))
@@ -117,7 +117,7 @@ def viewPhoto(request, pk):
 
     else:
         form=ImageCommentForm()
-    return render(request, 'oneimage.html', {"image": image, "form":form, "all_comments": all_comments,"total_likes": total_likes})
+    return render(request, 'postimage.html', {"image": image, "form":form, "all_comments": all_comments,"total_likes": total_likes})
 
 @login_required
 def profile_view(request, pk):
@@ -148,7 +148,7 @@ def editpage(request, pk):
     else:
         form=UpdateUserProfile()
 
-    return render(request, "editprofile.html", {"form":form, "user":user})
+    return render(request, "profileupdate.html", {"form":form, "user":user})
 
 def search_profile(request):
     if 'article' in request.GET and request.GET['article']:
