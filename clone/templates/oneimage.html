@@ -9,7 +9,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8 oneimage">
             <div class="row">
-                <img src="{{image.image.url}}" alt="{{image.image_name}}">
+                <img src="{{image.image.url}}" alt="{{image.image_name}}" style="max-height: 200px; width:800px ;">
             </div>
             <br>
             <br>
@@ -18,7 +18,7 @@
                 <div>
                     <form method="POST" action="{% url 'likes' image.pk %}" class="likesform">
                         {% csrf_token %}
-                        <button type="submit" name="likebutton" value="{{image.id}}"><a href="#"><i
+                        <button class = 'success' type="submit" name="likebutton" value="{{image.id}}"><a href="#"><i
                                     class="fa fa-heart"></i></a></button> {{total_likes}}
                     </form>
 
