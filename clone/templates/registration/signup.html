@@ -1,0 +1,63 @@
+{% extends 'registration/base.html' %}
+{% load bootstrap3 %}
+
+{% block content %}
+<div class="container-fluid" id="registrationform">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="registration">
+                <div class="registration-head">
+                    <h4>Instaclone</h4>
+                    <p>Sign In to see photos and videos from your friends</p>
+                </div>
+                <br>
+                <div class="registration-form form-group">
+                    <form action="" , method="post" class="regform">
+                        {% csrf_token %}
+                        <!-- {% bootstrap_form form %}         -->
+                        <label for="username" class="form-control">Username:
+                        {{form.username}}
+                        </label>
+                        <label for="email" class="form-control">Input Email Address:
+                        {{form.email}}
+                        </label>
+                        <label for="password1" class="form-control">Enter Password:
+                        {{form.password1}}
+                        </label>
+                        <label for="password2" class="form-control">Confirm Password: 
+                        {{form.password2}}   
+                        </label>                  
+                        <br>
+                        {% if form.errors %}
+                        {% for field in form %}
+                            {% for error in field.errors %}
+                                {{ error|escape }}
+                            {% endfor %}
+                        {% endfor %}
+                        {% for error in form.non_field_errors %}
+                            {{ error|escape }}
+                        {% endfor %}
+                        {% endif %} <br>
+                       
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-success btn-block" value="Sign Up">
+                            <br>
+                            <p>By signing up, you agree to our <strong><em>terms, data and privacy policies</em></strong></p>
+                        </div>
+    
+                    </form>
+                    <div class="registration-login">
+                        <p>Have an account?<a href="{% url 'index' %}">Login</a></p>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+</div>
+
+{% endblock %}
