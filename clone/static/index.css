@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Pattaya&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    font-family: 'Pattaya', sans-serif;
+    font-size: 18px;
+}
+
+#navbar{
+    background-color: #ffffff;
+    border-bottom: 2px solid gainsboro;
+}
+
+.profilepic{
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+}
+
+.wrapper-small{
+    background-color: #ffffff;
+}
+
+.navbutton{
+    border: none;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.navbutton i{
+    color: black;
+    font-size: 20px;
+}
+
+#landing-page-container{
+    background-color: #f1f2f1;
+}
+
+.landing-page-format{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    margin-right: 200px;
+}
+
+.landing-page-image img{
+    float: right;
+}
+
+.landing-page-image img{
+    height: 600px;
+    width: 350px;
+    border-radius: 30px;
+    margin-right: 140px;
+}
+
+.landing-page-form {
+    position: absolute;
+    float: left;
+    margin-top: 7px;
+    font-size: 18px;
+    text-align: center;
+    margin-left: 600px;
+    background-color: #ffffff;
+    height: 600px;
+    width: 350px;
+    padding: 30px;
+    /* padding-top: 50px; */
+    border: 1px solid gainsboro;
+}
+
+.landing-page-form h4{
+    font-style: italic;
+    font-size: 24px;
+    padding-bottom: 30px;
+}
+
+.landing-page-form form{
+    padding-top: 30px;
+}
+.landing-create-account p{
+    padding-top: 60px;
+
+}
+#registrationform{
+    background-color: #f1f2f1;
+}
+.registration{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    border: 1px solid gainsboro;
+    background-color: #ffffff;
+    margin: 30px 0px 30px 0px;
+}
+
+.registration-head h4{
+    font-style: italic;
+    font-size: 36px;
+}
+
+.registration-head p{
+    font-size: 12px;
+}
+
+.registration-form{
+    width: 90%;
+}
+
+/* .registration-form form{
+    width: 300px;
+} */
+
+
+.form-group p{
+    font-size: 14px;
+}
+
+h1{
+    color: greenyellow;
+}
+.viewimage img{
+    object-fit: cover;
+    width: 100%;
+}
+
+.image-card img{
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+    margin-top: 30px;
+}
+
+.dropdown{
+    list-style-type: none;
+}
+
+.navbarsearch{
+    margin-left: 250px;
+}
+
+.panel-images{
+    margin-top: 30px;
+}
+
+.otherprofiles{
+    margin-top: 30px;
+}
+
+.viewimage a img{
+    object-fit: cover;
+}
+
+.editprofilepage{
+    background-color: #f1f2f1;
+    height: 100vh;
+}
+
+.editprofile{
+   background-color: #ffffff;
+   padding: 60px;
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+   align-items: center;
+   justify-content: center;
+   height: 80vh;
+   border: 2px solid gainsboro;
+   margin: 30px;
+}
+
+.newimagepage{
+    background-color: #f1f2f1;
+    height: 100vh;
+}
+
+.new-image{
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    background-color: #ffffff;
+    margin-top: 30px;
+    border: 2px solid gainsboro;
+    padding: 30px 20px 0px 20px;
+}
+
+.oneimage{
+    margin: 30px 0px;
+    height: 60%;
+    border: 2px solid gainsboro;
+}
+
+.oneimage img{
+    object-fit: cover;
+    width: 100%;
+}
+
+.likesform{
+    font-size: 30px;
+}
+
+.likesform button a{
+    color: red;
+    border: 0px;
+}
+
+#oneimagepage{
+    background-color: #f1f2f1;
+}
+
+.imagecontent{
+    padding: 0px 30px 30px 30px;
+}
+
+#profilepage{
+    background-color: #f1f2f1;
+    height: 100vh;
+}
+#profilepagedetails{
+    margin-top: 30px;
+}
+
+.regform label{
+    width: 100%;
+    position: relative;
+}
+
+.regform label input{
+    border: none;
+}
+
+.image-stories img{
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    border: 1px dotted red;
+}
+
+.image-stories{
+    margin-top: 30px;
+    background-color: #ffffff;
+    padding: 20px;
+    border: 2px solid gainsboro;
+}

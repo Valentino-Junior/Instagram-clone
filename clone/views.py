@@ -8,7 +8,7 @@ from .email import send_welcome_email
 from .models import Image, Profile, User, Comment
 from django.contrib.auth.decorators import login_required
 
-def home(request):
+def welcome(request):
     images=Image.objects.all()
     users=User.objects.all()
     # print(images)
@@ -44,7 +44,7 @@ def loginUser(request):
             if user is not None:
                 login(request, user)
 
-                return redirect('home')
+                return redirect('welcome')
 
             else:
                 messages.error(request, "Username or Password is incorrect")
@@ -70,7 +70,7 @@ def new_image(request):
             image.profile=current_user
             image.save()
 
-        return redirect('home')
+        return redirect('welcome')
 
     else:
         form=NewImageForm()
