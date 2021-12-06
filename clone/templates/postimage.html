@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="container-fluid newimagepage">
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 new-image">
+            <form action="{% url 'uploadimage' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+        
+                {% bootstrap_form form %}
+        
+                <input value="Post" type="submit" class="btn btn-success btn-lg btn-block">
+        
+            </form>
+        </div>
+        <div class="col-3"></div>
+    </div>
+</div>
+
+{% endblock %}
