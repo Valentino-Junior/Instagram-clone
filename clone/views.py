@@ -18,13 +18,6 @@ def home(request):
 
     return render(request, 'home.html', {"images":images, "users":users})
 
-# def homepage(request):
-#     image=Image.objects.all()
-#     print(image)
-#     # users=User.objects.all()
-#     # print(users)
-    
-#     return render(request, 'instaclone/index.html', {"image":image})
 
 def registerUser(request):
     form=RegistrationForm()
@@ -34,7 +27,7 @@ def registerUser(request):
         if form.is_valid():
             form.save()
 
-            return redirect('home')
+            return redirect('index')
 
     else:
         form=RegistrationForm()
@@ -68,7 +61,7 @@ def loginUser(request):
 
 def logoutUser(request):
     logout(request)
-    return redirect('home')
+    return redirect('index')
 
 @login_required
 def new_image(request):
