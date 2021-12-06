@@ -8,15 +8,12 @@ from .email import send_welcome_email
 from .models import Image, Profile, User, Comment
 from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-
-
 def home(request):
     images=Image.objects.all()
     users=User.objects.all()
     # print(images)
 
-    return render(request, 'home.html', {"images":images, "users":users})
+    return render(request, "index.html", {"images":images, "users":users})
 
 
 def registerUser(request):
@@ -55,7 +52,7 @@ def loginUser(request):
         else:
             messages.error(request, "Field is empty. Enter Username and Password")
 
-    title="G clone"
+    title="Instaclone.com"
     return render(request, 'registration/login.html', {"title":title})
 
 
@@ -77,7 +74,7 @@ def new_image(request):
 
     else:
         form=NewImageForm()
-    return render(request, 'comment.html', {"form":form})
+    return render(request, 'new_image.html', {"form":form})
 
 def likes(request, pk):
     imagelike=get_object_or_404(Image, id=request.POST.get('likebutton'))
@@ -110,7 +107,7 @@ def viewPhoto(request, pk):
 
     else:
         form=ImageCommentForm()
-    return render(request, 'postimage.html', {"image": image, "form":form, "all_comments": all_comments,"total_likes": total_likes})
+    return render(request, 'oneimage.html', {"image": image, "form":form, "all_comments": all_comments,"total_likes": total_likes})
 
 @login_required
 def profile_view(request, pk):
@@ -141,7 +138,7 @@ def editpage(request, pk):
     else:
         form=UpdateUserProfile()
 
-    return render(request, "profileupdate.html", {"form":form, "user":user})
+    return render(request, "editprofile.html", {"form":form, "user":user})
 
 def search_profile(request):
     if 'article' in request.GET and request.GET['article']:
