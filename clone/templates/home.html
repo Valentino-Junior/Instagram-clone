@@ -1,1 +1,63 @@
-<h1>IG CLONE</h1>
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+{% load static %}
+{% block content %}
+{% include 'navbar.html' %}
+
+<div class="container-fluid" style="background-color: #f1f2f1;">
+    <div class="row">
+        <div class="col-md-2"></div>
+
+        <div class="col-md-7">
+        <div class="image-stories">
+            <img src="../../static/Images/stories/no1.jpg" alt="user stories">
+            <img src="../../static/Images/stories/no2.jpg" alt="second user stories">
+            <img src="../../static/Images/stories/no3.jpeg" alt="third user - user stories">
+            <img src="../../static/Images/stories/no4.jpeg" alt="fourth user-user stories">
+            <img src="../../static/Images/stories/no5.jpeg" alt="fifth user stories">
+            <img src="../../static/Images/stories/no6.jpeg" alt="sixth-user-story">
+            <img src="../../static/Images/stories/no7.jpeg" alt="seventh-user-story">
+            <img src="../../static/Images/stories/no8.jpeg" alt="eighth-user-story"> 
+        </div>
+        <div>
+        {% for image in images %}
+            <div class="panel panel-default panel-images">
+                <div class="panel-heading" style="background-color: white;">
+                    <div>
+                        {% if image.profile.profile.profile_pic.url %}
+                        <img src="{{image.profile.profile.profile_pic.url}}" class="profilepic" class="">
+                        {% else %}
+                        <img src="../../static/Images/altprofilepic.jpg"
+                            alt="phone displaying the name instagram on a blue screen" class="profilepic">
+                        {% endif %}
+                        <p>Profile Name:<a href="{% url 'userprofile' image.profile.profile.id %}">{{image.profile.profile.user}}</a></p>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="viewimage">
+                        <a href="{% url 'viewphoto' image.id %}"><img src="{{image.image.url}}"
+                                alt="{{image.image_name}}" class="img-responsive"></a>
+                    </div>
+                    <br>
+
+                    <div>
+                        {{image.caption}}
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+            
+
+        </div>
+
+        <div class="col-md-3 otherprofiles">
+            <p>OTHER USER PROFILES</p>
+            {% for user in users %}
+            <p>{{user.username}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{%endblock%}
