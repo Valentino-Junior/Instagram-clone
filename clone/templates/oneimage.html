@@ -31,7 +31,7 @@
                 </ul>
                 
                 {% endfor %}
-                <form method="post" enctype="multipart/form-data" action="{% url 'viewphoto' image.pk %}">
+                <form method="post" enctype="multipart/form-data" >
                     {% csrf_token %}
                     {% bootstrap_form form %}
 

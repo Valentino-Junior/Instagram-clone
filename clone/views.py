@@ -133,12 +133,14 @@ def editpage(request, pk):
         if form.is_valid():
             form.save()
 
-            return redirect('userprofile')
+            return HttpResponseRedirect(reverse('userprofile', args=[str(pk)]))
 
     else:
         form=UpdateUserProfile()
 
-    return render(request, "editprofile.html", {"form":form, "user":user, "pk": pk})
+    return render(request, "editprofile.html", {"form":form, "user":user})
+
+
 
 def search_profile(request):
     if 'article' in request.GET and request.GET['article']:
