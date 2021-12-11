@@ -41,7 +41,9 @@ class Image(models.Model):
     profile=models.ForeignKey(User, on_delete=models.CASCADE)
     comments=models.TextField()
     likes=models.ManyToManyField(User, related_name="image_posts")
-   
+    class Meta:
+        ordering = ["-pk"]
+
 
     def total_likes(self):
         return self.likes.count()
