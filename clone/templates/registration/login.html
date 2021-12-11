@@ -26,7 +26,7 @@
                                 <label for="password">Input password:</label>
                                 <input type="password" name="password" class="form-control">
                                 {% for message in messages %}
-                                {{message}}
+                                <p class="alert alert-danger">{{message}}</p>
                                 {% endfor %}
                                 <br>
                                 <input type="submit" value="Login" class="btn btn-success btn-block">

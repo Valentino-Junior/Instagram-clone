@@ -53,7 +53,7 @@ def loginUser(request):
             messages.error(request, "Field is empty. Enter Username and Password")
 
     title="Instaclone.com"
-    return render(request, 'registration/login.html', {"title":title})
+    return render(request, 'registration/login.html', {"success":messages, "title":title})
 
 
 def logoutUser(request):
